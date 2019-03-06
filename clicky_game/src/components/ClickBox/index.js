@@ -10,8 +10,12 @@ class ClickBox extends React.Component {
 
         return (
 
-
+<div className="card">
+            <div className="img-coontainer">
             
+            <img src={props.image}></img>
+            </div>
+</div>
 
         )
 

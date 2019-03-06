@@ -19,9 +19,7 @@ class NavBar extends React.Component {
                 <li className="nav-item">
                     <a className="nav-link">Link</a>
                 </li>
-                <li className="nav-item">
-                    <a classNames="nav-link ">Disabled</a>
-                </li>
+            
             </ul>
 
 
