@@ -10,10 +10,10 @@ class Header extends React.Component {
 
 
 
+            <h3>Hello</h3>
 
 
-    
-)
+        )
 
 
     }
@@ -24,3 +24,5 @@ class Header extends React.Component {
 
 
 }
+
+export default Header;

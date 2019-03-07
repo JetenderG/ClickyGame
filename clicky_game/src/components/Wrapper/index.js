@@ -1,5 +1,4 @@
 import React from "react";
-import Wrapper from "../"
 
 
 class Wrapper extends React.Component {
@@ -8,6 +7,7 @@ class Wrapper extends React.Component {
 
 
         return (
+            <div className="container">
 
 
 
@@ -15,8 +15,15 @@ class Wrapper extends React.Component {
 
 
 
-    
-)
+            </div>
+
+
+
+
+
+
+
+        )
 
 
 
@@ -31,3 +38,5 @@ class Wrapper extends React.Component {
 
 
 }
+
+export default Wrapper;
