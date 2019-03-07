@@ -14,6 +14,8 @@ class ClickBox extends React.Component {
                 <div className="img-coontainer">
 
                     <img alt={props.id} src={props.image} ></img>
+
+                    {onclick =}
                 </div>
             </div>
 
