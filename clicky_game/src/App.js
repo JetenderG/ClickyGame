@@ -29,8 +29,11 @@ class App extends React.Component {
     let alreadyrend =[];
 
 
-        for (let i = 0; i < alreadyrend.length;){
+        for (let i = 0; i < alreadyrend.length;){ 
+
           var rnd = Math.floor(Math.random()*11)
+
+          const found = arr1.some(r=> arr2.indexOf(r) >= 0)
 
           
 
