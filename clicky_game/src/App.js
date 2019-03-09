@@ -11,16 +11,50 @@ import images from "./clickon.json"
 
 class App extends React.Component {
 
-  state = (
-    images
-  );
+  state = {
+
+    listofChar : images,
+    hiscore : 0,
+    score : 0
+
+  }
 
   componentDidMount() {
 
-    console.log(images)
+    renderchar();
+
+  }
+
+  renderchar(){
+    let alreadyrend =[];
+
+
+        for (let i = 0; i < alreadyrend.length;){
+          var rnd = Math.floor(Math.random()*11)
+
+          
+
+        }
+    
+
+  }
+
+  lose(){
 
 
   }
+
+  addScore(){
+
+
+  }
+
+  winner(){
+
+
+
+  }
+
 
   render() {
     return (
@@ -30,14 +64,12 @@ class App extends React.Component {
         < Header />
 
 
-        {this.state.images.map(img => (
-          <ClickBox
+
+ <ClickBox
 
 
-          />
-        ))}
 
-
+ />
 
       </Wrapper>
 
