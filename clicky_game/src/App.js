@@ -13,9 +13,9 @@ class App extends React.Component {
 
   state = {
 
-    listofChar : images,
-    hiscore : 0,
-    score : 0
+    listofChar: images,
+    hiscore: 0,
+    score: 0
 
   }
 
@@ -25,34 +25,40 @@ class App extends React.Component {
 
   }
 
-  renderchar(){
-    let alreadyrend =[];
+  renderchar() {
+    let alreadyrend = [];
 
 
-        for (let i = 0; i < alreadyrend.length;){ 
+    for (let i = 0; i < this.state.listofChars.length;) {
 
-          var rnd = Math.floor(Math.random()*11)
+      let rand = this.state.listofChar[Math.floor(Math.random() * this.state.listofChars.length)];
 
-          const found = arr1.some(r=> arr2.indexOf(r) >= 0)
-
-          
-
-        }
-    
-
-  }
-
-  lose(){
+      if (alreadyrend.includes(rand)) {
 
 
-  }
 
-  addScore(){
+      } else {
+
+        { this.props.id }
+        { this.props.images }
+      }
+
+    }
 
 
   }
 
-  winner(){
+  lose() {
+
+
+  }
+
+  addScore() {
+
+
+  }
+
+  winner() {
 
 
 
@@ -68,11 +74,11 @@ class App extends React.Component {
 
 
 
- <ClickBox
+        <ClickBox
 
 
 
- />
+        />
 
       </Wrapper>
 
