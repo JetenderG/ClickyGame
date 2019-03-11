@@ -1,21 +1,10 @@
 import React from "react";
+import "./style.css"
 
-
-class Wrapper extends React.Component {
-
-    render() {
-
+function Wrapper(props){
 
         return (
-            <div className="container">
-
-
-
-
-
-
-
-            </div>
+            <div className="container wrap">{props.children}</div>
 
 
 
@@ -31,8 +20,7 @@ class Wrapper extends React.Component {
 
 
 
-    }
-
+    
 
 
 

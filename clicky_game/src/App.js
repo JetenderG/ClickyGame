@@ -19,34 +19,35 @@ class App extends React.Component {
 
   }
 
-  componentDidMount() {
-
-    renderchar();
-
-  }
 
   renderchar() {
+    console.log(this.state.listofChar.length)
     let alreadyrend = [];
-
-
-    for (let i = 0; i < this.state.listofChars.length;) {
-
-      let rand = this.state.listofChar[Math.floor(Math.random() * this.state.listofChars.length)];
-
+    for (let i = 0; i <=this.state.listofChar.length;) {
+      let rand = this.state.listofChar[Math.floor(Math.random() * this.state.listofChar.length)]           
       if (alreadyrend.includes(rand)) {
-
-
-
       } else {
 
-        { this.props.id }
-        { this.props.images }
+        
+        alreadyrend.push(rand);
+        console.log(rand)
+
+         console.log(alreadyrend)
+          i++
+if( alreadyrend.length === this.state.listofChar.length){
+  console.log(alreadyrend)
+          return alreadyrend;
+          }
       }
 
     }
+  }
 
+
+  componentDidMount() {
 
   }
+  
 
   lose() {
 
@@ -66,23 +67,31 @@ class App extends React.Component {
 
 
   render() {
+    let rndArray = this.renderchar()
     return (
-
-      <Wrapper>
-        <NavBar />
+      <div className="container">
+      
+      <NavBar />
         < Header />
 
+      <Wrapper>
 
+      {rndArray.map(img =>(
 
-        <ClickBox
-
-
-
-        />
+  <ClickBox
+  
+        alt={img.id}
+        src={img.image}
+  
+  />
+      ))}
 
       </Wrapper>
-
-
+      
+      
+      </div>
+      
+      
 
 
     )

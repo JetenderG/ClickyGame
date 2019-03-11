@@ -1,21 +1,18 @@
 import React from "react";
 
+import "./style.css"
 
 
+function ClickBox (props) {
 
-class ClickBox extends React.Component {
 
-
-    render(props) {
 
         return (
 
-            <div className="card">
-                <div className="img-coontainer">
+            <div className="imgCard">
 
                     <img alt={props.id} src={props.image} ></img>
             
-                </div>
             </div>
 
         )
@@ -24,7 +21,7 @@ class ClickBox extends React.Component {
 
 
 
-    }
+    
 
 
 

@@ -2,21 +2,25 @@ import React from "react";
 
 
 
-class Header extends React.Component {
+function  Header (){
 
-    render() {
 
         return (
 
 
+                <div className="container">
+                
+                    <div className="row">
+                                <h3>Hello</h3>
 
-            <h3>Hello</h3>
+                    </div>
+                </div>
+
+
+        
 
 
         )
-
-
-    }
 
 
 

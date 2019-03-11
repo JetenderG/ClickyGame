@@ -2,15 +2,16 @@ import React from "react"
 
 
 
-class NavBar extends React.Component {
+function NavBar(props) {
 
-    render(props) {
+    
 
         return (
 
 
             <ul className="navbar justify-content-center  sticky-top">
                 <li className="nav-item">
+                <p>Helllo</p>
                 </li>
                 <li className="nav-item">
                 </li>
@@ -26,7 +27,7 @@ class NavBar extends React.Component {
 
 
 
-    }
+    
 
 
 
