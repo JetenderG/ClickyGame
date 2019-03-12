@@ -3,17 +3,17 @@ import React from "react";
 import "./style.css"
 
 
-function ClickBox (props) {
+function ClickBox(props) {
 
 
 
         return (
 
-            <div className="imgCard">
+                <div className="imgCard" dataset={props.id}>
 
-                    <img alt={props.id} src={props.image} ></img>
-            
-            </div>
+                        <img alt={props.animal} src={props.images} ></img>
+
+                </div>
 
         )
 
@@ -21,7 +21,7 @@ function ClickBox (props) {
 
 
 
-    
+
 
 
 
