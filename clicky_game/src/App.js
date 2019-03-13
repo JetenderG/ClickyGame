@@ -15,7 +15,8 @@ class App extends React.Component {
 
     listofChar: images,
     hiscore: 0,
-    score: 0
+    score: 0,
+    trackImg:[]
 
   }
 
@@ -47,22 +48,49 @@ class App extends React.Component {
 
   lose() {
 
-
+    alert("You Lose")
     this.setState({
       score: 0
     })
   }
 
-  addScore() {
+  differClick( id) {
 
-    this.setState({
-      hiscore: this.state.hiscore + 1
+    this.state.trackImg.forEach((item, index,array) =>{
+
+      if (item ===id){
+
+       this.lose();
+
+      }else if(index === array.length - 1){ 
+
+              this.winner();
+
+      }
     })
   }
 
   winner() {
 
+this.setState({
+    score: this.state.scrore +1
+})
 
+if (this.state.score >this.state.hiscore){
+
+  this.setState({
+   hiscore: this.state.score
+  })
+}
+
+if(this.state.score.length === this.state.listofChar.length){
+
+  alert("You Win")
+  this.setState({
+
+    score : 0
+  })
+}
 
   }
 
@@ -84,7 +112,8 @@ class App extends React.Component {
               key={img.id}
               alt={img.animal}
               images={img.images}
-
+              clickevent={this.differClick}
+          
             />
           ))}
 
