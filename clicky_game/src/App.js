@@ -11,18 +11,19 @@ import images from "./clickon.json"
 
 class App extends React.Component {
 
-  state = {
-
-    listofChar: images,
-    hiscore: 0,
-    score: 0,
-    trackImg:[]
-
+  constructor() {
+    super();
+    this.state = {
+      listofChar: images,
+      hiscore: 0,
+      score: 0,
+      trackImg: []
+    }
   }
 
 
   renderchar() {
-    console.log(this.state.listofChar.length)
+    //console.log(this.state.listofChar.length)
     let alreadyrend = [];
     for (let i = 0; i <= this.state.listofChar.length;) {
       let rand = this.state.listofChar[Math.floor(Math.random() * this.state.listofChar.length)]
@@ -31,12 +32,12 @@ class App extends React.Component {
 
 
         alreadyrend.push(rand);
-        console.log(rand)
+        //      console.log(rand)
 
-        console.log(alreadyrend)
+        //        console.log(alreadyrend)
         i++
         if (alreadyrend.length === this.state.listofChar.length) {
-          console.log(alreadyrend)
+          //  console.log(alreadyrend)
           return alreadyrend;
         }
       }
@@ -47,50 +48,66 @@ class App extends React.Component {
 
 
   lose() {
-
+    console.log("lose:   ")
     alert("You Lose")
     this.setState({
       score: 0
     })
   }
 
-  differClick( id) {
+  differClick = (id) => {
+    console.log(this.state.trackImg)
+    if (this.state.trackImg.length === 0) {
+      console.log(id)
 
-    this.state.trackImg.forEach((item, index,array) =>{
+      this.winner(id);
+    } else {
+      this.state.trackImg.forEach((item, index, array) => {
+        console.log(id)
+        console.log(item)
 
-      if (item ===id){
+        if (item === id) {
 
-       this.lose();
+          this.lose();
 
-      }else if(index === array.length - 1){ 
+        } else if (index === array.length - 1) {
 
-              this.winner();
+          this.winner(id);
 
-      }
-    })
+        }
+      })
+
+    }
+
   }
 
-  winner() {
+  winner(id) {
+    console.log("win")
 
-this.setState({
-    score: this.state.scrore +1
-})
 
-if (this.state.score >this.state.hiscore){
+    var joined = this.state.trackImg.concat(id)
 
-  this.setState({
-   hiscore: this.state.score
-  })
-}
+    this.setState({
+      score: this.state.score + 1,
+      trackImg: joined
+    })
+    console.log(this.state.trackImg)
 
-if(this.state.score.length === this.state.listofChar.length){
+    if (this.state.score > this.state.hiscore) {
 
-  alert("You Win")
-  this.setState({
+      this.setState({
+        hiscore: this.state.score
+      })
+    }
 
-    score : 0
-  })
-}
+    if (this.state.score.length === this.state.listofChar.length) {
+
+      alert("You Win   " + id)
+      this.setState({
+
+        score: 0
+      })
+    }
 
   }
 
@@ -100,7 +117,12 @@ if(this.state.score.length === this.state.listofChar.length){
     return (
       <div className="container">
 
-        <NavBar />
+        <NavBar
+
+          hiScore={this.state.hiscore}
+          score={this.state.score}
+
+        />
         < Header />
 
         <Wrapper>
@@ -113,7 +135,7 @@ if(this.state.score.length === this.state.listofChar.length){
               alt={img.animal}
               images={img.images}
               clickevent={this.differClick}
-          
+
             />
           ))}
 
