@@ -1,5 +1,7 @@
-.wrap{
+.wrapper{
+display: inline-grid;
+grid-template-columns: auto auto auto auto;
+column-gap: 40px;
+justify-content: space-evenly;
 
-    border: solid;
-    border-color: black;
 }

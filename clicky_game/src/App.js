@@ -4,7 +4,9 @@ import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import ClickBox from "./components/ClickBox";
 import images from "./clickon.json"
-
+import CurrentScore  from "./components/CurrentScore";
+import Hiscore from "./components/HighScoreBox"
+import Body from "./components/Body";
 
 
 
@@ -37,7 +39,7 @@ class App extends React.Component {
         //        console.log(alreadyrend)
         i++
         if (alreadyrend.length === this.state.listofChar.length) {
-          //  console.log(alreadyrend)
+            console.log(alreadyrend)
           return alreadyrend;
         }
       }
@@ -49,11 +51,13 @@ class App extends React.Component {
 
   lose() {
     console.log("lose:   ")
+    console.log(this.state.trackImg)
     alert("You Lose")
     this.setState({
-      score: 0
+      score: 0,
+      trackImg:[]
     })
-  }
+    }
 
   differClick = (id) => {
     console.log(this.state.trackImg)
@@ -70,28 +74,32 @@ class App extends React.Component {
 
           this.lose();
 
-        } else if (index === array.length - 1) {
-
+        } else if (index === (array.length - 1)) {
+            console.log(index)
+            console.log(array)
+            console.log(array.length)
           this.winner(id);
 
-        }
+        }else{}
       })
 
     }
 
   }
 
-  winner(id) {
-    console.log("win")
+  winner =(id) => {
+    console.log("point added")
 
+    console.log(this.state.trackImg)
 
     var joined = this.state.trackImg.concat(id)
+
+    console.log(joined)
 
     this.setState({
       score: this.state.score + 1,
       trackImg: joined
     })
-    console.log(this.state.trackImg)
 
     if (this.state.score > this.state.hiscore) {
 
@@ -104,7 +112,6 @@ class App extends React.Component {
 
       alert("You Win   " + id)
       this.setState({
-
         score: 0
       })
     }
@@ -115,16 +122,35 @@ class App extends React.Component {
   render() {
     let rndArray = this.renderchar()
     return (
-      <div className="container">
 
-        <NavBar
-
-          hiScore={this.state.hiscore}
-          score={this.state.score}
-
+    <Body>
+    < Header >
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <CurrentScore
+                            score={this.state.score}
+          />
+        </div>
+        <div className="col">
+        <Hiscore 
+                              hiScore={this.state.hiscore}
         />
-        < Header />
+        </div>
+      </div>
+    </div>
+          
+          
+    </Header>
+        
 
+        
+
+
+ <div className="container">
+
+       
+  
         <Wrapper>
 
           {rndArray.map(img => (
@@ -147,6 +173,11 @@ class App extends React.Component {
 
 
 
+    
+
+
+    </Body>
+      
     )
   }
 }

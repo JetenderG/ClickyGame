@@ -1,20 +1,14 @@
 import React from "react";
+import "./style.css";
 
 
-
-function  Header (){
+function  Header (props){
 
 
         return (
 
 
-                <div className="container">
-                
-                    <div className="row">
-                                <h3>Hello</h3>
-
-                    </div>
-                </div>
+                <div className="headerStyle">{props.children} </div>
 
 
         
