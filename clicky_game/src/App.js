@@ -7,12 +7,13 @@ import images from "./clickon.json"
 import CurrentScore  from "./components/CurrentScore";
 import Hiscore from "./components/HighScoreBox"
 import Body from "./components/Body";
+import ContainItems from "./components/ContainItems";
+import  "./style.css";
 
 
 
 
 class App extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -21,9 +22,10 @@ class App extends React.Component {
       score: 0,
       trackImg: []
     }
+  //this.differClick = this.differClick().bind(this);
+
+
   }
-
-
   renderchar() {
     //console.log(this.state.listofChar.length)
     let alreadyrend = [];
@@ -31,159 +33,99 @@ class App extends React.Component {
       let rand = this.state.listofChar[Math.floor(Math.random() * this.state.listofChar.length)]
       if (alreadyrend.includes(rand)) {
       } else {
-
-
         alreadyrend.push(rand);
-        //      console.log(rand)
-
-        //        console.log(alreadyrend)
         i++
         if (alreadyrend.length === this.state.listofChar.length) {
-            console.log(alreadyrend)
           return alreadyrend;
         }
       }
-
     }
   }
 
-
-
-  lose() {
-    console.log("lose:   ")
+  differClick = (id) => {
     console.log(this.state.trackImg)
+    if (this.state.trackImg.length === 0) {
+      console.log(id)
+      this.pointAdded(id);
+    } else {
+      console.log(id)
+
+      this.state.trackImg.forEach((item, index, array) => {
+  
+        if (item === id) {
+          console.log(item + "          " + id)
+          this.lose();
+        } else if (index === (array.length - 1)) {
+          this.pointAdded(id);
+        }else if (this.state.score.length === this.state.listofChar.length){
+this.winner();
+        }
+      })
+    }
+  }  
+
+  pointAdded=(id)=>{
+    var joined = this.state.trackImg.concat(id)
+    this.setState({
+      score: this.state.score + 1,
+      trackImg: joined
+    })
+    if (this.state.score > this.state.hiscore) {
+      this.setState({
+        hiscore: this.state.score
+      })
+    }
+  }
+  lose= ()=> {
     alert("You Lose")
     this.setState({
       score: 0,
       trackImg:[]
     })
     }
-
-  differClick = (id) => {
-    console.log(this.state.trackImg)
-    if (this.state.trackImg.length === 0) {
-      console.log(id)
-
-      this.winner(id);
-    } else {
-      this.state.trackImg.forEach((item, index, array) => {
-        console.log(id)
-        console.log(item)
-
-        if (item === id) {
-
-          this.lose();
-
-        } else if (index === (array.length - 1)) {
-            console.log(index)
-            console.log(array)
-            console.log(array.length)
-          this.winner(id);
-
-        }else{}
-      })
-
-    }
-
-  }
-
   winner =(id) => {
-    console.log("point added")
-
-    console.log(this.state.trackImg)
-
-    var joined = this.state.trackImg.concat(id)
-
-    console.log(joined)
-
-    this.setState({
-      score: this.state.score + 1,
-      trackImg: joined
-    })
-
-    if (this.state.score > this.state.hiscore) {
-
-      this.setState({
-        hiscore: this.state.score
-      })
-    }
-
-    if (this.state.score.length === this.state.listofChar.length) {
-
-      alert("You Win   " + id)
+      alert("You Win" )
       this.setState({
         score: 0
       })
     }
-
-  }
-
-
+  
   render() {
     let rndArray = this.renderchar()
     return (
-
     <Body>
     < Header >
     <div className="container">
       <div className="row">
         <div className="col">
           <CurrentScore
-                            score={this.state.score}
+             score={this.state.score}
           />
         </div>
         <div className="col">
         <Hiscore 
-                              hiScore={this.state.hiscore}
+             hiScore={this.state.hiscore}
         />
         </div>
       </div>
-    </div>
-          
-          
+    </div>  
     </Header>
-        
-
-        
-
-
- <div className="container">
-
-       
-  
+ <div className="container containerItems">
         <Wrapper>
-
           {rndArray.map(img => (
-
             <ClickBox
               id={img.id}
               key={img.id}
               alt={img.animal}
               images={img.images}
               clickevent={this.differClick}
-
             />
           ))}
 
         </Wrapper>
-
-
       </div>
-
-
-
-
-    
-
-
     </Body>
-      
     )
   }
 }
-
-
-
-
-
 export default App;

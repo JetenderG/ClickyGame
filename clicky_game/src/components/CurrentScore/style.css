@@ -1,0 +1,11 @@
+@import "https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans";
+.currentS{
+font-family: 'Alfa Slab one' , cursive;
+}
+.curScore{
+    padding: 40px 175px;
+    height: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+}
