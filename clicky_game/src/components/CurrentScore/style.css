@@ -3,8 +3,11 @@
 font-family: 'Alfa Slab one' , cursive;
 }
 .curScore{
-    padding: 40px 175px;
     height: 100px;
+    text-align: center;
+}
+.presentScore{
+    font-size: 30px
 }
 
 @media only screen and (max-width: 600px) {

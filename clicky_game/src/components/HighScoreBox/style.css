@@ -3,6 +3,14 @@
 font-family: 'Alfa Slab one' , cursive;
 }
 .styleHiS{
-    padding: 40px 226px;
     height: 100px;
+    text-align: center;
+
+}
+
+.highScore{
+
+        font-size: 30px
+
+    
 }

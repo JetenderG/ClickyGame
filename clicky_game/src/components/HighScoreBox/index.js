@@ -1,13 +1,13 @@
 import React from 'react';
 import "./style.css"
 
-function Hiscore(props){
+function Hiscore(props) {
 
-    return(
+    return (
 
 
-        <div className = "styleHiS">
-            <p className="highS"> HiScore :{props.hiScore}</p>
+        <div className="styleHiS">
+            <p className="highS"> HiScore :<p className="highScore">{props.hiScore}</p></p>
         </div>
 
     )
