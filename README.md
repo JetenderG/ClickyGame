@@ -5,6 +5,9 @@ Description
 ----
 A game where you click a image to get a point however not the same one. 
 
+[Link to the Page](https://jetenderg.github.io/Word-Guess-Game/)
+
+![Page](clicky_game/1560840961023.png)
 
 Installation
 ----
@@ -12,7 +15,9 @@ Installation
 
 > git clone => https://github.com/JetenderG/Word-Guess-Game.git
 
-*Install Neccesary Files*
+
+*Install Necessary Files*
+
 >npm install
 
 *Run*
