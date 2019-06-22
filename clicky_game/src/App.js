@@ -29,7 +29,7 @@ class App extends React.Component {
     let alreadyrend = [];
     for (let i = 0; i <= this.state.listofChar.length;) {
       let rand = this.state.listofChar[Math.floor(Math.random() * this.state.listofChar.length)]
-      if (alreadyrend.includes(rand)) {} else {
+      if (alreadyrend.includes(rand)) { } else {
         alreadyrend.push(rand);
         i++
         if (alreadyrend.length === this.state.listofChar.length) {
@@ -82,11 +82,10 @@ class App extends React.Component {
       score: this.state.score + 1,
       trackImg: joined
     })
-    if (this.state.score > this.state.hiscore) {
-      this.setState({
-        hiscore: this.state.score
-      })
-    }
+    this.setState({
+      hiscore: this.state.hiscore + 1
+    })
+
   }
   lose = () => {
     alert("You Lose")
@@ -104,47 +103,47 @@ class App extends React.Component {
 
   render() {
     let rndArray = this.renderchar()
-    return ( <Body>
+    return (<Body>
       <Header >
-      <div className = "container" >
-      <div className = "row" >
-      <div className = "col" >
-      <CurrentScore score = {
-        this.state.score
-      }/> 
-      </div> 
-      <div className = "col" >
-      <Hiscore hiScore = {
-        this.state.hiscore
-      }
-      /> </div> 
-      </div> </div > 
-      </Header> 
-    <div className = "container containerItems">
-      <Wrapper> {
-        rndArray.map(img => ( <
-          ClickBox id = {
-            img.id
-          }
-          key = {
-            img.id
-          }
-          alt = {
-            img.animal
-          }
-          images = {
-            img.images
-          }
-          clickevent = {
-            this.differClick
-          }
+        <div className="container" >
+          <div className="row" >
+            <div className="col" >
+              <CurrentScore score={
+                this.state.score
+              } />
+            </div>
+            <div className="col" >
+              <Hiscore hiScore={
+                this.state.hiscore
+              }
+              /> </div>
+          </div> </div >
+      </Header>
+      <div className="container containerItems">
+        <Wrapper> {
+          rndArray.map(img => (<
+            ClickBox id={
+              img.id
+            }
+            key={
+              img.id
+            }
+            alt={
+              img.animal
+            }
+            images={
+              img.images
+            }
+            clickevent={
+              this.differClick
+            }
           />
-        ))
-      }
+          ))
+        }
 
-      </Wrapper> 
-      </div > 
-      </Body>
+        </Wrapper>
+      </div >
+    </Body>
     )
   }
 }
