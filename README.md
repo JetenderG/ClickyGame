@@ -5,7 +5,7 @@ Description
 ----
 A game where you click a image to get a point however not the same one. 
 
-[Link to the Page](https://jetenderg.github.io/Word-Guess-Game/)
+Link to the [Site](https://div-clicker.herokuapp.com/)
 
 ![Page](clicky_game/1560840961023.png)
 
