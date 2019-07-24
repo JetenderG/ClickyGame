@@ -1,4 +1,4 @@
-Div Clicker
+Clicky Clicker
 =====
 
 Description
