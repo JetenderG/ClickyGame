@@ -82,9 +82,12 @@ class App extends React.Component {
       score: this.state.score + 1,
       trackImg: joined
     })
-    this.setState({
+    if (this.state.score >= this.state.hiscore){
+      this.setState({
       hiscore: this.state.hiscore + 1
     })
+    }
+    
 
   }
   lose = () => {
